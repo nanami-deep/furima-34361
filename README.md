@@ -2,12 +2,14 @@
 
 ## usersテーブル
 
-| Column   | Type   | Options     |
-| -------- | ------ | ----------- |
-| name     | string | null: false |
-| email    | string | null: false |
-| password | string | null: false |
-
+| Column             | Type    | Options      |
+| ------------------ | ------- | ------------ |
+| name               | string  | null: false  |
+| email              | string  | unique: true |
+| encrypted_password | string  | null: false  |
+| nickname           | string  | null: false  |
+| birthday           | integer | null: false  |
+ 
 ## Association
 - has_many :product_users
 - has_many :users, through: :product_users
@@ -16,12 +18,13 @@
 
 ## productsテーブル
 
-| Column | Type       | Options                        |
-| ------ | -----------| ------------------------------ |
-| name   | string     | null: false                    |
-| price  | string     | null: false                    |
-| text   | string     | null: false                    |
-| user   | references | null: false, foreign_key: true |
+| Column | Type        | Options                        |
+| ------ | ----------- | ------------------------------ |
+| name   | string      | null: false                    |
+| price  | integer     | null: false                    |
+| text   | text        | null: false                    |
+| user   | references  | null: false, foreign_key: true |
+| image  | string      |                                |
 
 ## Association
 - has_many :purchase_users
@@ -34,7 +37,7 @@
 | Column   | Type       | Options                         |
 | -------- | ---------- | ------------------------------- |
 | user     | references | null: false, foreign_key: true  |
-| products | references | null: false, foreign_key: true  |
+| product  | references | null: false, foreign_key: true  |
 
 ## Association
 - has_one :delivery
@@ -44,9 +47,10 @@
 
 ## deliveriesテーブル
 
-| Column    | Type       | Options                        |
-| --------- | ---------- | ------------------------------ |
-| purchases | references | null: false, foreign_key: true |
+| Column         | Type       | Options                        |
+| -------------- | ---------- | ------------------------------ |
+| purchase       | references | null: false, foreign_key: true |
+| street address | text       | null: false                    | 
 
 ## Association
 - belongs_to :purchase
