@@ -2,19 +2,18 @@
 
 ## usersテーブル
 
-| Column             | Type   | Options      |
-| ------------------ | ------ | ------------ |
-| email              | string | unique: true |
-| encrypted_password | string | null: false  |
-| nickname           | string | null: false  |
-| birthday           | date   | null: false  |
-| full_name          | string | null: false  |
-| full_name_kana     | string | null: false  |
-| last_name          | string | null: false  |
-| last_name_kana     | string | null: false  |
+| Column             | Type   | Options                   |
+| ------------------ | ------ | ------------------------- |
+| email              | string | unique: true, null: false |
+| encrypted_password | string | null: false               |
+| nickname           | string | null: false               |
+| birthday           | date   | null: false               |
+| full_name          | string | null: false               |
+| full_name_kana     | string | null: false               |
+| last_name          | string | null: false               |
+| last_name_kana     | string | null: false               |
  
 ## Association
-- has_many :product_users
 - has_many :products
 
 ## productsテーブル
@@ -32,8 +31,7 @@
 | category_id          | string      | null: false                    |
 
 ## Association
-- has_many :purchase_users
-- has_many :deliveries
+- has_one :purchases
 
 
 ## purchasesテーブル
@@ -56,11 +54,9 @@
 | postal_code      | integer    | null: false                    |
 | prefectures      | string     | null: false                    |
 | address          | string     | null: false                    |
-| building_name    | string     | null:false                     |
-| phone_number     | integer    | null: false                    |
+| phone_number     | string     | null: false                    |
 
 ## Association
-- belongs_to :purchase
-- belongs_to :user
+- belongs_to :purchases
 
 
