@@ -25,7 +25,7 @@
 | price                | integer     | null: false                    |
 | text                 | text        | null: false                    |
 | user                 | references  | null: false, foreign_key: true |
-| product_condition_id | text        | null: false                    |
+| product_condition_id | integer     | null: false                    |
 | shipping_charges_id  | integer     | null: false                    |
 | shipping_area_id     | integer     | null: false                    |
 | days_to_ship_id      | integer     | null: false                    |
@@ -33,6 +33,7 @@
 
 ## Association
 - has_one :purchases
+- has_many :users
 
 
 ## purchasesテーブル
@@ -45,6 +46,7 @@
 ## Association
 - has_one :delivery
 - belongs_to :product
+- has_many :users
 
 
 ## deliveriesテーブル
@@ -53,14 +55,11 @@
 | --------------------- | ---------- | ------------------------------ |
 | purchase              | references | null: false, foreign_key: true |
 | postal_code           | string     | null: false                    |
-| shipping_charges_id  | integer     | null: false                    |
 | shipping_area_id      | integer    | null: false                    |
-| days_to_ship_id      | integer     | null: false                    |
-| category_id          | integer     | null: false                    |
 | phone_number          | string     | null: false                    |
 
 ## Association
-- belongs_to :purchases
+- belongs_to :purchase
 - has_many :users
 
 
