@@ -15,6 +15,7 @@
  
 ## Association
 - has_many :products
+- has_many :purchases
 
 ## productsテーブル
 
@@ -26,9 +27,9 @@
 | user                 | references  | null: false, foreign_key: true |
 | product_condition_id | text        | null: false                    |
 | shipping_charges_id  | integer     | null: false                    |
-| shipping_area_id     | string      | null: false                    |
+| shipping_area_id     | integer     | null: false                    |
 | days_to_ship_id      | integer     | null: false                    |
-| category_id          | string      | null: false                    |
+| category_id          | integer     | null: false                    |
 
 ## Association
 - has_one :purchases
@@ -48,15 +49,18 @@
 
 ## deliveriesテーブル
 
-| Column           | Type       | Options                        |
-| ---------------- | ---------- | ------------------------------ |
-| purchase         | references | null: false, foreign_key: true |
-| postal_code      | integer    | null: false                    |
-| prefectures      | string     | null: false                    |
-| address          | string     | null: false                    |
-| phone_number     | string     | null: false                    |
+| Column                | Type       | Options                        |
+| --------------------- | ---------- | ------------------------------ |
+| purchase              | references | null: false, foreign_key: true |
+| postal_code           | string     | null: false                    |
+| shipping_charges_id  | integer     | null: false                    |
+| shipping_area_id      | integer    | null: false                    |
+| days_to_ship_id      | integer     | null: false                    |
+| category_id          | integer     | null: false                    |
+| phone_number          | string     | null: false                    |
 
 ## Association
 - belongs_to :purchases
+- has_many :users
 
 
