@@ -32,8 +32,8 @@
 | category_id          | integer     | null: false                    |
 
 ## Association
-- has_one :purchases
-- has_many :users
+- has_one :purchase
+- has_one :user
 
 
 ## purchasesテーブル
