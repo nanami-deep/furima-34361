@@ -46,13 +46,16 @@
 ## Association
 - has_one :delivery
 - belongs_to :product
-- has_many :users
-
+- belongs_to :user
 
 ## deliveriesテーブル
 
 | Column                | Type       | Options                        |
 | --------------------- | ---------- | ------------------------------ |
+| name                  | string     | null: false                    |
+| price                 | integer    | null: false                    |
+| product_condition_id  | integer    | null: false                    |
+| days_to_ship_id       | integer    | null: false                    |
 | purchase              | references | null: false, foreign_key: true |
 | postal_code           | string     | null: false                    |
 | shipping_area_id      | integer    | null: false                    |
@@ -60,6 +63,6 @@
 
 ## Association
 - belongs_to :purchase
-- has_many :users
+
 
 
