@@ -1,24 +1,68 @@
-# README
+#　テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## usersテーブル
 
-Things you may want to cover:
+| Column             | Type   | Options                   |
+| ------------------ | ------ | ------------------------- |
+| email              | string | unique: true, null: false |
+| encrypted_password | string | null: false               |
+| nickname           | string | null: false               |
+| birthday           | date   | null: false               |
+| full_name          | string | null: false               |
+| full_name_kana     | string | null: false               |
+| last_name          | string | null: false               |
+| last_name_kana     | string | null: false               |
+ 
+## Association
+- has_many :products
+- has_many :purchases
 
-* Ruby version
+## productsテーブル
 
-* System dependencies
+| Column               | Type        | Options                        |
+| -------------------- | ----------- | ------------------------------ |
+| name                 | string      | null: false                    |
+| price                | integer     | null: false                    |
+| product_information  | text        | null: false                    |
+| user                 | references  | null: false, foreign_key: true |
+| product_condition_id | integer     | null: false                    |
+| shipping_charges_id  | integer     | null: false                    |
+| prefecture_id        | integer     | null: false                    |
+| days_to_ship_id      | integer     | null: false                    |
+| category_id          | integer     | null: false                    |
 
-* Configuration
+## Association
+- has_one :purchase
+- belongs_to :user
 
-* Database creation
 
-* Database initialization
+## purchasesテーブル
 
-* How to run the test suite
+| Column   | Type       | Options                         |
+| -------- | ---------- | ------------------------------- |
+| user     | references | null: false, foreign_key: true  |
+| product  | references | null: false, foreign_key: true  |
 
-* Services (job queues, cache servers, search engines, etc.)
+## Association
+- has_one :delivery
+- belongs_to :product
+- belongs_to :user
 
-* Deployment instructions
+## deliveriesテーブル
 
-* ...
+| Column                | Type       | Options                        |
+| --------------------- | ---------- | ------------------------------ |
+| purchase              | references | null: false, foreign_key: true |
+| postal_code           | string     | null: false                    |
+| phone_number          | string     | null: false                    |
+| building_name         | string     |                                |
+| prefecture_id         | integer    | null: false                    |
+| address               | string     | null: false                    |
+| municipality          | string     | null: false                    |
+
+
+## Association
+- belongs_to :purchase
+
+
+
