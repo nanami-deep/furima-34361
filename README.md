@@ -33,7 +33,7 @@
 
 ## Association
 - has_one :purchase
-- has_one :user
+- belongs_to :user
 
 
 ## purchasesテーブル
@@ -53,13 +53,11 @@
 | Column                | Type       | Options                        |
 | --------------------- | ---------- | ------------------------------ |
 | name                  | string     | null: false                    |
-| price                 | integer    | null: false                    |
-| product_condition_id  | integer    | null: false                    |
-| days_to_ship_id       | integer    | null: false                    |
 | purchase              | references | null: false, foreign_key: true |
 | postal_code           | string     | null: false                    |
 | shipping_area_id      | integer    | null: false                    |
 | phone_number          | string     | null: false                    |
+| building_name         | string     |                                |
 
 ## Association
 - belongs_to :purchase
