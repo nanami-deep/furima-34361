@@ -23,7 +23,7 @@
 | -------------------- | ----------- | ------------------------------ |
 | name                 | string      | null: false                    |
 | price                | integer     | null: false                    |
-| text                 | text        | null: false                    |
+| product_information  | text        | null: false                    |
 | user                 | references  | null: false, foreign_key: true |
 | product_condition_id | integer     | null: false                    |
 | shipping_charges_id  | integer     | null: false                    |
@@ -52,12 +52,14 @@
 
 | Column                | Type       | Options                        |
 | --------------------- | ---------- | ------------------------------ |
-| name                  | string     | null: false                    |
 | purchase              | references | null: false, foreign_key: true |
 | postal_code           | string     | null: false                    |
-| shipping_area_id      | integer    | null: false                    |
 | phone_number          | string     | null: false                    |
 | building_name         | string     |                                |
+| prefectures           | string     | null: false                    |
+| address               | string     | null: false                    |
+| municipality          | string     | null: false                    |
+
 
 ## Association
 - belongs_to :purchase
