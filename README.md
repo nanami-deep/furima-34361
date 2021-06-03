@@ -27,7 +27,7 @@
 | user                 | references  | null: false, foreign_key: true |
 | product_condition_id | integer     | null: false                    |
 | shipping_charges_id  | integer     | null: false                    |
-| shipping_area_id     | integer     | null: false                    |
+| prefecture_id        | integer     | null: false                    |
 | days_to_ship_id      | integer     | null: false                    |
 | category_id          | integer     | null: false                    |
 
@@ -56,7 +56,7 @@
 | postal_code           | string     | null: false                    |
 | phone_number          | string     | null: false                    |
 | building_name         | string     |                                |
-| prefectures           | string     | null: false                    |
+| prefecture_id         | integer    | null: false                    |
 | address               | string     | null: false                    |
 | municipality          | string     | null: false                    |
 
