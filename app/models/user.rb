@@ -4,5 +4,13 @@ class User < ApplicationRecord
   has_many :products
   has_many :purchases
   
-  validates :nickname,:birthday,:first_name,:first_name_kana,:last_name,:last_name_kana,:email,:password,:password_confirmation, presence: true
+  validates :nickname, presence: true
+  validates :birthday, presence: true
+  validates :first_name, presence: true, format: {with: /\A[ぁ-んァ-ン一-龥]/ }
+  validates :first_name_kana, presence: true, format: {with: /\A[ァ-ヶー－]+\z/ }
+  validates :last_name, presence: true, format: {with: /\A[ぁ-んァ-ン一-龥]/ }
+  validates :last_name_kana, presence: true, format: {with: /\A[ァ-ヶー－]+\z/ }
+  validates :email, presence: true
+  validates :password, presence: true
+  validates :password_confirmation, presence: true
 end
