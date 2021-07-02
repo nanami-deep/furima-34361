@@ -11,7 +11,3 @@ FactoryBot.define do
     birthday {"2000-01-01"}
   end
 end
-
-#{Faker::Name.initials(number: 2)}
-#{Faker::Internet.free_email}
-#Faker::Internet.password(min_length: 6)

@@ -39,7 +39,7 @@ class ItemsController < ApplicationController
     #item.destroy   
   #end  
   
-  private
+  #private
 
   #def item_params
     #params.require(:item).permit(:neme, :item_price, :item_information, :item_condition_id, :shipping_charges_id, :prefecture_id, :days_to_ship_id, :category_id).marge(user_id: current_user.id)
@@ -49,9 +49,9 @@ class ItemsController < ApplicationController
     #@item = Item.find(params[:id])
   #end
   
-  def  move_to_index
-    unless user_signed_in?
-      redirect_to action: :index
-    end
-  end 
+  #def  move_to_index
+    #unless user_signed_in?
+      #redirect_to action: :index
+    #end
+  #end 
 end
