@@ -104,7 +104,7 @@ RSpec.describe User, type: :model do
         expect(@user.errors.full_messages).to include('First name kana is invalid')
       end
       it '名（フリガナ）が半角（数字）では登録できない' do
-        @user.first_name_kana = "000"
+        @user.last_name_kana = "000"
         @user.valid?
         expect(@user.errors.full_messages).to include('Last name kana is invalid')
       end
@@ -114,7 +114,7 @@ RSpec.describe User, type: :model do
         expect(@user.errors.full_messages).to include('First name kana is invalid')
       end
       it '名（フリガナ）が全角（ひらがな）では登録できない' do
-        @user.first_name_kana = "たろう"
+        @user.last_name_kana = "たろう"
         @user.valid?
         expect(@user.errors.full_messages).to include('Last name kana is invalid')
       end
