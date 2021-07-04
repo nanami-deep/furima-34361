@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
   #before_action :contributor_confirmation, only: [:edit, :update, :destroy]
 
   def index
-    @items = Item.includes(:user)
+    #@items = Item.includes(:user)
   end
   
   #def new
