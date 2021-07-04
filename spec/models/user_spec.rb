@@ -6,7 +6,7 @@ RSpec.describe User, type: :model do
       @user = FactoryBot.build(:user)
     end
     context'新規登録できるとき' do
-      it '全ての情報があればが正常に保存できる' do
+      it '全ての情報があれば正常に保存できる' do
         expect(@user).to be_valid
       end
       it 'passwordとpassword_confirmationが6文字以上であれば登録できる' do
@@ -93,8 +93,8 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include('First name kana is invalid')
       end
-      it '名（フリガナ）が全角（ひらがな）では登録できない' do
-        @user.last_name_kana = "たろう"
+      it '名（フリガナ）が半角（カタカナ）では登録できない' do
+        @user.last_name_kana = "ﾀﾛｳ"
         @user.valid?
         expect(@user.errors.full_messages).to include('Last name kana is invalid')
       end
@@ -103,7 +103,21 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include('First name kana is invalid')
       end
-
+      it '名（フリガナ）が半角（数字）では登録できない' do
+        @user.first_name_kana = "000"
+        @user.valid?
+        expect(@user.errors.full_messages).to include('Last name kana is invalid')
+      end
+      it '姓（フリガナ）が全角（ひらがな）では登録できない' do
+        @user.first_name_kana = "やまだ"
+        @user.valid?
+        expect(@user.errors.full_messages).to include('First name kana is invalid')
+      end
+      it '名（フリガナ）が全角（ひらがな）では登録できない' do
+        @user.first_name_kana = "たろう"
+        @user.valid?
+        expect(@user.errors.full_messages).to include('Last name kana is invalid')
+      end
       it '名字が空だと登録できない' do
         @user.first_name = ""
         @user.valid?
